@@ -1,5 +1,6 @@
 "use client"
 
+import InputField from '@/components/Forms/InputField'
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import { useForm } from 'react-hook-form'
@@ -48,6 +49,15 @@ const SignUp = () => {
       <form className='space-y-5' onSubmit={handleSubmit(onSubmit)}>
 
         {/* INPUTS */}
+
+        <InputField
+        name = "fullName"
+        label = "Full Name"
+        placeholder = "Stephen Johnson"
+        register = {register}
+        error = {errors.fullName}
+        validation = {{required: 'Full Name is required', minLength: 2}}
+        />
 
 
 
