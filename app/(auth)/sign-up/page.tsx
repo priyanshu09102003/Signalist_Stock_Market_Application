@@ -1,7 +1,9 @@
 "use client"
 
 import InputField from '@/components/Forms/InputField'
+import SelectField from '@/components/Forms/SelectField'
 import { Button } from '@/components/ui/button'
+import { INVESTMENT_GOALS } from '@/lib/constants'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -50,6 +52,8 @@ const SignUp = () => {
 
         {/* INPUTS */}
 
+        {/* -----FULLNAME---------- */}
+
         <InputField
         name = "fullName"
         label = "Full Name"
@@ -57,6 +61,46 @@ const SignUp = () => {
         register = {register}
         error = {errors.fullName}
         validation = {{required: 'Full Name is required', minLength: 2}}
+        />
+
+        {/* -----EMAIL---------- */}
+
+        <InputField
+        name = "email"
+        label = "Email"
+        placeholder = "stephen.johnson@signalist.com"
+        register = {register}
+        error = {errors.email}
+        validation = {{required: 'Email is required', pattern: /^\w+@\w+\.\w+$/, message: 'Email address is required'}}
+        />
+
+
+        {/* -----PASSWORD---------- */}
+
+        <InputField
+        name = "password"
+        label = "Password"
+        placeholder = "Enter a strong password"
+        type='password'
+        register = {register}
+        error = {errors.password}
+        validation = {{required: 'Password is required', minLength: 8}}
+        />
+
+        {/* -----COUNTRY---------- */}
+
+
+
+        {/* -----INVESTMENT GOALS---------- */}
+
+        <SelectField
+        name = "investmentGoals"
+        label = "Investment Goals"
+        placeholder = "Select your Investment Goal"
+        options = {INVESTMENT_GOALS}
+        control = {control}
+        error = {errors.investmentGoals}
+        required
         />
 
 
