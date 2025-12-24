@@ -1,5 +1,6 @@
 "use client"
 
+import { CountrySelectField } from '@/components/Forms/CountrySelectField'
 import InputField from '@/components/Forms/InputField'
 import SelectField from '@/components/Forms/SelectField'
 import { Button } from '@/components/ui/button'
@@ -89,6 +90,13 @@ const SignUp = () => {
 
         {/* -----COUNTRY---------- */}
 
+        <CountrySelectField
+        name='country'
+        label = "Country"
+        control = {control}
+        error = {errors.country}
+        required
+        />
 
 
         {/* -----INVESTMENT GOALS---------- */}
