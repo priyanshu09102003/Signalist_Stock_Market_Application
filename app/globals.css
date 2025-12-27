@@ -156,8 +156,8 @@
     @apply text-gray-400 flex-col gap-4 md:gap-10 items-center sm:items-start;
   }
   .home-section {
-    @apply w-full gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3;
-  }
+  @apply w-full gap-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3;
+}
   .header {
     @apply z-50 w-full h-[70px] bg-gray-800;
   }
