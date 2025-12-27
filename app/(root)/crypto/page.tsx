@@ -3,14 +3,28 @@ import React from 'react'
 
 const page = () => {
   return (
-    <main>
+    <>
         <Header />
 
-        <div>
-            
-        </div>
+        <main className='main-container_two'>
 
-    </main>
+            <section className='home-grid'>
+
+                <p>Coin Overview</p>
+
+                <p>Trending Coins</p>
+
+            </section>
+
+            <section className='w-full mt-7 space-y-4'>
+                <p>Categories</p>
+
+            </section>
+
+        </main>
+    </>
+
+    
   )
 }
 

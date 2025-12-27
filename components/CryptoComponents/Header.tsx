@@ -12,14 +12,16 @@ const Header = () => {
   return (
    <header>
         <div className='main-container inner'>
-                <Image 
-                src="/assets/icons/coinpulse.svg"
-                alt='Crypto'
-                width={120}
-                height={32}
-                />
+                <nav className="ml-auto">
 
-                <nav>
+                      <Link href="/crypto"
+                    className={cn('nav-link' , {
+                        'is-active': pathname === '/crypto'
+                    })}
+                    >
+                    Explore</Link>
+
+
                     <p>Search Coins</p>
 
                     <Link href="/coins"
