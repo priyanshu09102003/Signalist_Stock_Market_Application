@@ -136,6 +136,13 @@ declare global {
         watchlist: StockWithData[];
     };
 
+    type UserForNewsEmail = {
+    id: string;
+    email: string;
+    name: string;
+    country?: string;
+    };
+
     type StockWithData = {
         userId: string;
         symbol: string;
