@@ -45,6 +45,7 @@
     "embla-carousel-react": "^8.6.0",
     "inngest": "^3.48.1",
     "input-otp": "^1.4.2",
+    "lightweight-charts": "^5.1.0",
     "lucide-react": "^0.562.0",
     "mongodb": "^7.0.0",
     "mongoose": "^9.0.2",
