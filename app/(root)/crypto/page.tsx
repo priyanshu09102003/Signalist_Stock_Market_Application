@@ -1,18 +1,40 @@
+import CoinOverview from '@/components/CryptoComponents/CoinOverview'
+import DataTable from '@/components/CryptoComponents/DataTable'
+import { CoinOverviewFallback, TrendingCoinsFallback } from '@/components/CryptoComponents/FallBack'
 import Header from '@/components/CryptoComponents/Header'
-import React from 'react'
+import TrendingCoins from '@/components/CryptoComponents/TrendingCoins'
+import { fetcher } from '@/lib/actions/coingecko.actions'
+import { cn, formatCurrency } from '@/lib/utils'
+import { TrendingDown, TrendingUp } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import React, { Suspense } from 'react'
 
-const page = () => {
+
+const page = async() => {
+
   return (
     <>
         <Header />
 
         <main className='main-container_two'>
 
-            <section className='home-grid'>
+            <section className='home-grid_two'>
 
-                <p>Coin Overview</p>
+              <Suspense fallback={<CoinOverviewFallback/>}>
 
-                <p>Trending Coins</p>
+                <CoinOverview />
+
+              </Suspense>
+
+              <Suspense fallback={<TrendingCoinsFallback />}>
+
+                <TrendingCoins />
+
+              </Suspense>
+
+               
+
 
             </section>
 

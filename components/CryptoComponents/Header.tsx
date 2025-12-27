@@ -14,14 +14,6 @@ const Header = () => {
         <div className='main-container inner'>
                 <nav className="ml-auto">
 
-                      <Link href="/crypto"
-                    className={cn('nav-link' , {
-                        'is-active': pathname === '/crypto'
-                    })}
-                    >
-                    Explore</Link>
-
-
                     <p>Search Coins</p>
 
                     <Link href="/coins"
