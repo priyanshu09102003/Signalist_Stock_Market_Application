@@ -1,4 +1,3 @@
-
 'use client'
 
 import {NAV_ITEMS} from "@/lib/constants";
@@ -7,7 +6,7 @@ import {usePathname} from "next/navigation";
 import SearchCommand from "../Search/SearchCommand";
 
 
-const NavItems = ({initialStocks}: { initialStocks: StockWithWatchlistStatus[]}) => {
+const NavItems = ({initialStocks, onNavigate}: { initialStocks: StockWithWatchlistStatus[], onNavigate?: () => void}) => {
     const pathname = usePathname()
 
     const isActive = (path: string) => {
@@ -31,7 +30,7 @@ const NavItems = ({initialStocks}: { initialStocks: StockWithWatchlistStatus[]})
                 )
 
                 return <li key={href}>
-                    <Link href={href} className={`hover:text-yellow-500 transition-colors ${
+                    <Link href={href} onClick={onNavigate} className={`hover:text-yellow-500 transition-colors ${
                         isActive(href) ? 'text-gray-100' : ''
                     }`}>
                         {label}
