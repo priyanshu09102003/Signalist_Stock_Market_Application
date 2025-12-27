@@ -115,6 +115,7 @@ export const HEATMAP_WIDGET_CONFIG = {
     height: '600',
 };
 
+
 export const TOP_STORIES_WIDGET_CONFIG = {
     displayMode: 'regular',
     feedMode: 'market',

@@ -25,6 +25,7 @@ const NavItems = ({initialStocks}: { initialStocks: StockWithWatchlistStatus[]})
                             renderAs="text"
                             label="Search"
                             initialStocks={initialStocks}
+                            
                         />
                     </li>
                 )
