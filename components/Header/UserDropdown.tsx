@@ -14,10 +14,13 @@ import { Button } from '../ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { LogOutIcon } from 'lucide-react';
 import NavItems from './Navitems';
+import { signOut } from '@/lib/actions/auth.actions';
 
 const UserDropdown = ({user}:{user:User}) => {
     const router = useRouter();
     const handleSignout = async() => {
+
+        await signOut();
         router.push("/sign-in");
     }
 
