@@ -1,6 +1,7 @@
+import Categories from '@/components/CryptoComponents/Categories'
 import CoinOverview from '@/components/CryptoComponents/CoinOverview'
 import DataTable from '@/components/CryptoComponents/DataTable'
-import { CoinOverviewFallback, TrendingCoinsFallback } from '@/components/CryptoComponents/FallBack'
+import { CategoriesFallback, CoinOverviewFallback, TrendingCoinsFallback } from '@/components/CryptoComponents/FallBack'
 import Header from '@/components/CryptoComponents/Header'
 import TrendingCoins from '@/components/CryptoComponents/TrendingCoins'
 import { fetcher } from '@/lib/actions/coingecko.actions'
@@ -39,8 +40,10 @@ const page = async() => {
             </section>
 
             <section className='w-full mt-7 space-y-4'>
-                <p>Categories</p>
 
+              <Suspense fallback={<CategoriesFallback />}>
+                <Categories />
+              </Suspense>
             </section>
 
         </main>

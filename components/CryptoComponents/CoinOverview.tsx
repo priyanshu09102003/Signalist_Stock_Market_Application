@@ -10,7 +10,7 @@ const CoinOverview = async () => {
     try {
 
       const [coin, coinOHLCData] = await Promise.all([
-          fetcher<CoinDetailsData>('coins/bitcoin'),
+        fetcher<CoinDetailsData>('coins/bitcoin'),
 
         fetcher<(OHLCData[])>('coins/bitcoin/ohlc', {
         vs_currency: 'usd',

@@ -27,7 +27,7 @@ const columns: DataTableColumn<TrendingCoin>[] = [
 },
 
   {header: '24h Change',
-    cellClassName: 'name-cell',
+    cellClassName: 'change-cell',
     cell: (coin) => {
       const item = coin.item;
       const isTrendingUp = item.data.price_change_percentage_24h.usd > 0;
@@ -35,14 +35,14 @@ const columns: DataTableColumn<TrendingCoin>[] = [
       return(
         <div className={cn('price-change', isTrendingUp ? 'text-green-500': 'text-red-500')}>
 
-          <p>
+          
             {isTrendingUp ? (
               <TrendingUp width={16} height={16} />
             ) : (
               <TrendingDown width={16} height={16} />
             )}
             {Math.abs(item.data.price_change_percentage_24h.usd).toFixed(2)}%
-          </p>
+          
 
         </div>
       )
@@ -62,19 +62,16 @@ const columns: DataTableColumn<TrendingCoin>[] = [
   return (
     <div id='trending-coins'>
         
-                  <h4>Trending Coins</h4>
+        <h4>Trending Coins</h4>
 
-                  <div id='trending-coins'>
-                    <DataTable
-                    data={trendingCoins.coins.slice(0,6)|| []}
-                    columns={columns}
-                    rowKey={(coin) => coin.item.id}
-                    tableClassName='trending-coins-table'
-                    headerCellClassName='py-3!'
-                    bodyCellClassName='py-2!'
-                    />
-                  </div>
-    
+        <DataTable
+        data={trendingCoins.coins.slice(0,8)|| []}
+        columns={columns}
+        rowKey={(coin) => coin.item.id}
+        tableClassName='trending-coins-table'
+        headerCellClassName='!py-3'
+        bodyCellClassName='!py-2'
+        />
     
     </div>
   )
