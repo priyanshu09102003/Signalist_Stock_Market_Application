@@ -27,7 +27,7 @@ const DataTable = <T,>({columns, data, rowKey, tableClassName, headerRowClassNam
         </TableHeader>
         <TableBody>
             {data.map((row, rowIndex)=>(
-                <TableRow key={rowKey(row, rowIndex)} className={cn('overflow-hidden rounded-lg border-b border-purple-100/5 hover:bg-dark-400/30! relative', bodyRowClassName)}>
+                <TableRow key={rowKey(row, rowIndex)} className={cn('overflow-hidden rounded-lg border-b border-purple-100/5 hover:bg-dark-400/30! relative bg-dark-500/50', bodyRowClassName)}>
                     {columns.map((column, columnIndex)=> (
                         <TableCell key={columnIndex} className={cn('py-4 first:pl-5 last:pr-5', bodyCellClassName, column.cellClassName)}>
                             {column.cell(row, rowIndex)}

@@ -16,9 +16,9 @@ const Header = () => {
 
                     <p>Search Coins</p>
 
-                    <Link href="/coins"
+                    <Link href="/crypto/coins"
                     className={cn('nav-link' , {
-                        'is-active': pathname === '/coins'
+                        'is-active': pathname === '/crypto/coins'
                     })}
                     >
                     All Coins</Link>
