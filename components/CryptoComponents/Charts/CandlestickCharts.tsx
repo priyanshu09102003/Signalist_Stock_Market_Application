@@ -6,15 +6,23 @@ import { convertOHLCData } from '@/lib/utils';
 import { CandlestickSeries, createChart, IChartApi, ISeriesApi } from 'lightweight-charts';
 import React, { useEffect, useRef, useState, useTransition } from 'react'
 
-const CandlestickCharts = ({children, data, coinId, height = 420, initialPeriod = 'daily'}:CandlestickChartProps) => {
+const CandlestickCharts = ({children, data, coinId, height = 420, initialPeriod = 'daily' , liveOhlcv = null, mode= 'historical' , liveInterval, setLiveInterval}:CandlestickChartProps) => {
     const chartContainerRef = useRef<HTMLDivElement | null>(null);
     const chartRef = useRef<IChartApi | null>(null);
     const candleSeriesRef = useRef<ISeriesApi<"Candlestick"> | null>(null)
+    const prevOhlcDataLength = useRef<number>(data?.length || 0) 
 
     const [loading, setLoading] = useState(false);
     const [period, setPeriod] = useState(initialPeriod)
     const [ohlcData, setOhlcData] = useState<OHLCData[]>(data ?? []);
     const [isPending, startTransition] = useTransition();
+
+    // Sync data prop changes with internal state (for polling updates)
+    useEffect(() => {
+        if (data && data.length > 0) {
+            setOhlcData(data);
+        }
+    }, [data]);
 
     const fetchOHLCData = async (selectedPeriod: Period) => {
     setLoading(true);
