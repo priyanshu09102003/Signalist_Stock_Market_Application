@@ -1,4 +1,5 @@
 import CoinHistory from '@/components/CryptoComponents/CoinHistory';
+import Converter from '@/components/CryptoComponents/Converter';
 import Header from '@/components/CryptoComponents/Header';
 import LiveDataWrapper from '@/components/CryptoComponents/LiveDataWrapper';
 import { fetcher, getPools } from '@/lib/actions/coingecko.actions';
@@ -73,11 +74,10 @@ const page = async ({params}:NextPageProps) => {
 
   return (
     <>
-        <Header />
 
         <main id='coin-details-page'>
 
-            <section className='primary sticky'>
+            <section className='primary'>
                 <LiveDataWrapper coinId={id} poolId={pool.id} coin={coinData} coinOHLCData={coinOHLCData} />     
                 
                      
@@ -90,7 +90,7 @@ const page = async ({params}:NextPageProps) => {
 
 
             <section className='secondary'>
-                <p>Currency Converter</p>
+                <Converter symbol={coinData.symbol} icon={coinData.image.small} priceList={coinData.market_data.current_price} />
 
                 <div className='details'>
 

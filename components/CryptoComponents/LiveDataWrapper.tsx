@@ -5,6 +5,7 @@ import { Separator } from '../ui/separator'
 import CandlestickCharts from './Charts/CandlestickCharts'
 import { fetcher } from '@/lib/actions/coingecko.actions'
 import ExchangeListings from './ExchangeListings'
+import CoinHeader from './CoinHeader'
 
 const LiveDataWrapper = ({children, coinId, poolId, coin, coinOHLCData}:LiveDataProps) => {
     const [liveInterval, setLiveInterval] = useState<'1s' | '1m'>('1s')
@@ -65,8 +66,9 @@ const LiveDataWrapper = ({children, coinId, poolId, coin, coinOHLCData}:LiveData
   return (
     <section id='live-data-wrapper'>
 
-        <p>Coin Header</p>
-        <Separator className='divider lg:hidden xl:hidden' />
+        <CoinHeader name={coin.name} image={coin.image.large} livePrice={coin.market_data.current_price.usd} livePriceChangePercentage24h={coin.market_data.price_change_percentage_24h_in_currency.usd} priceChangePercentage30d = {coin.market_data.price_change_percentage_30d_in_currency.usd} priceChange24h={coin.market_data.price_change_24h_in_currency.usd} />
+        
+        <Separator className='divider' />
 
         <div className='trend'>
 
@@ -94,7 +96,7 @@ const LiveDataWrapper = ({children, coinId, poolId, coin, coinOHLCData}:LiveData
 
         </div>
 
-        <Separator className='divider lg:hidden xl:hidden' />
+        <Separator className='divider' />
 
         <div className='mt-6'>
 
