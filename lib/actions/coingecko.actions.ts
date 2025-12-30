@@ -71,3 +71,60 @@ export async function getPools(
     return fallback;
   }
 }
+
+export async function searchCoins(query: string): Promise<SearchCoin[]> {
+  try {
+    // Step 1: Fetch search results from /search endpoint
+    const searchData = await fetcher<{ coins: SearchResult[] }>('search', { query });
+
+    // Extract top 10 coin IDs
+    const coinIds = searchData.coins
+      .slice(0, 10)
+      .map((coin) => coin.id)
+      .join(',');
+
+    if (!coinIds) {
+      return [];
+    }
+
+    // Step 2: Fetch market data for those specific coins
+    const marketData = await fetcher<MarketData[]>('coins/markets', {
+      vs_currency: 'usd',
+      ids: coinIds,
+      order: 'market_cap_desc',
+      per_page: 10,
+      page: 1,
+      sparkline: false,
+      price_change_percentage: '24h',
+    });
+
+    // Step 3: Merge the two datasets
+    const mergedResults: SearchCoin[] = searchData.coins
+      .slice(0, 10)
+      .map((searchCoin) => {
+        const marketInfo = marketData.find((m) => m.id === searchCoin.id);
+
+        return {
+          id: searchCoin.id,
+          name: searchCoin.name,
+          symbol: searchCoin.symbol,
+          thumb: searchCoin.thumb,
+          large: searchCoin.thumb, // Use thumb as fallback for large
+          market_cap_rank: searchCoin.market_cap_rank,
+          data: {
+            price: marketInfo?.current_price ?? 0,
+            price_change_percentage_24h:
+              marketInfo?.price_change_percentage_24h ?? 0,
+            market_cap: marketInfo?.market_cap ?? 0,
+            total_volume: marketInfo?.total_volume ?? 0,
+          },
+        };
+      })
+      .filter((coin) => coin.data.price > 0); // Only return coins with valid price data
+
+    return mergedResults;
+  } catch (error) {
+    console.error('Error fetching coin search results:', error);
+    return [];
+  }
+}
