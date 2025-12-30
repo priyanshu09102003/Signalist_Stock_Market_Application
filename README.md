@@ -46,7 +46,7 @@ Built for both casual investors and active traders seeking a unified platform fo
 <tr>
 <td width="50%">
 
-<img src="./public/screenshots/signup.png" alt="Signup Process" width="100%">
+<img src="./public/sign-up.png" alt="Signup Process" width="100%">
 
 </td>
 <td width="50%">
@@ -73,7 +73,7 @@ Our intelligent onboarding ensures you see the most relevant market data from da
 <tr>
 <td width="50%">
 
-<img src="./public/screenshots/signin.png" alt="Signin Process" width="100%">
+<img src="./public/sign-in.png" alt="Signin Process" width="100%">
 
 </td>
 <td width="50%">
