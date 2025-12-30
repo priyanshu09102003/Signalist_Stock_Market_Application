@@ -12,8 +12,10 @@
     <a href="#-application-overview">Overview</a> •
     <a href="#-getting-started">Getting Started</a> •
     <a href="#-dashboard">Dashboard</a> •
-    <a href="#-global-search">Global Search</a> •
-    <a href="#-stock-details-an-watchlist">Stock Details and Watchlist Functionality</a>
+    <a href="#-global-search">Search</a> •
+    <a href="#-stock-details--watchlist">Stock Details & Watchlist</a> •
+    <a href="#-cryptocurrency-market">Crypto</a> •
+    <a href="#️-tech-stack">Tech Stack</a> 
   </p>
 </div>
 
@@ -247,6 +249,192 @@ The watchlist syncs across all your devices, ensuring you can monitor your favor
 
 ---
 
-*Ready for the next section!*
+## 💰 Cryptocurrency Market
+
+<div align="center">
+  <img src="./public/crypto.png" alt="Crypto Dashboard" width="70%" style="max-height: 500px; object-fit: contain;">
+</div>
+
+Signalist extends beyond traditional stock markets to provide comprehensive **cryptocurrency tracking and analysis**. The dedicated crypto section offers real-time monitoring of digital assets across global exchanges.
+
+**Key Features**:
+- **Live Price Charts**: Interactive candlestick charts powered by TradingView widgets for Bitcoin, Ethereum, and thousands of altcoins
+- **Trending Coins**: Track the hottest cryptocurrencies with 24-hour price changes and market movements
+- **Top Categories**: Explore crypto by category including Smart Contract Platforms, Layer 1 protocols, DeFi tokens, stablecoins, and more
+- **Market Data**: Access comprehensive metrics including market cap, 24-hour volume, price changes, and top gainers
+- **Exchange Listings**: View where each cryptocurrency is traded across major exchanges
+- **Coin Search**: Quickly find any cryptocurrency using the global search functionality
+- **Real-time Updates**: All data powered by leading crypto data APIs for accurate, up-to-the-second information
+
+Whether you're a Bitcoin maximalist, DeFi enthusiast, or exploring the broader crypto ecosystem, Signalist provides the tools you need to stay informed and make data-driven decisions in the fast-moving world of digital assets.
+
+**Explore the crypto markets and discover your next investment opportunity!**
+
+---
+
+## ⚙️ Tech Stack
+
+Signalist is built with cutting-edge technologies to deliver a fast, reliable, and scalable market intelligence platform.
+
+### Core Framework & Language
+
+<table>
+<tr>
+<td width="50%">
+
+**Next.js**
+
+A powerful React framework for building full-stack web applications. It provides server-side rendering, static site generation, and API routes, allowing developers to create optimized and scalable apps quickly.
+
+</td>
+<td width="50%">
+
+**TypeScript**
+
+A statically typed superset of JavaScript that improves code quality, tooling, and error detection. It is ideal for building large-scale applications and enhances maintainability.
+
+</td>
+</tr>
+</table>
+
+---
+
+### Authentication & Database
+
+<table>
+<tr>
+<td width="50%">
+
+**Better Auth**
+
+A framework-agnostic authentication and authorization library for TypeScript. It provides built-in support for email/password login, social sign-on (Google, GitHub, Apple, and more), and multi-factor authentication, simplifying user authentication and account management.
+
+</td>
+<td width="50%">
+
+**MongoDB**
+
+A flexible, high-performance NoSQL database. It stores data in JSON-like documents, supports dynamic schemas, and provides robust features for scalability, replication, and querying.
+
+</td>
+</tr>
+</table>
+
+---
+
+### Market Data & Visualization
+
+<table>
+<tr>
+<td width="50%">
+
+**Finnhub API**
+
+A real-time financial data API that provides stock, forex, and cryptocurrency market data. It offers developers access to fundamental data, economic indicators, and news, making it useful for building trading apps, dashboards, and financial analysis tools.
+
+</td>
+<td width="50%">
+
+**CoinGecko API**
+
+A comprehensive and reliable RESTful API that provides real-time and historical cryptocurrency market data, including prices, market capitalization, volume, and exchange information, enabling developers to build crypto tracking, analysis, and portfolio management applications.
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+**TradingView Widgets**
+
+A high-performance financial visualization library that provides interactive charting capabilities for rendering complex OHLCV data. It enables the integration of responsive candlestick charts and technical indicators, allowing users to perform professional-grade technical analysis with low-latency updates and surgical precision.
+
+</td>
+</tr>
+</table>
+
+---
+
+### Workflow Automation & Notifications
+
+<table>
+<tr>
+<td width="50%">
+
+**Inngest**
+
+A platform for event-driven workflows and background jobs. It allows developers to build reliable, scalable automated processes such as real-time alerts, notifications, and AI-powered workflows.
+
+</td>
+<td width="50%">
+
+**Nodemailer**
+
+A Node.js library for sending emails easily. It supports various transport methods such as SMTP, OAuth2, and third-party services, making it a reliable tool for handling transactional emails, notifications, and contact forms in applications.
+
+</td>
+</tr>
+</table>
+
+---
+
+### UI & Styling
+
+<table>
+<tr>
+<td width="50%">
+
+**Shadcn UI**
+
+An open-source library of fully customizable, accessible React components. It helps teams rapidly build consistent, visually appealing UIs while allowing full control over design and layout.
+
+</td>
+<td width="50%">
+
+**TailwindCSS**
+
+A utility-first CSS framework that allows developers to build custom, responsive designs quickly without leaving their HTML. It provides pre-defined classes for layout, typography, colors, and more.
+
+</td>
+</tr>
+</table>
+
+---
+
+### Architecture Overview
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Signalist Platform                        │
+├─────────────────────────────────────────────────────────────┤
+│  Frontend: Next.js + TypeScript + TailwindCSS + Shadcn UI   │
+├─────────────────────────────────────────────────────────────┤
+│  Authentication: Better Auth                                 │
+├─────────────────────────────────────────────────────────────┤
+│  Data Sources: Finnhub API + CoinGecko API                  │
+│  Visualization: TradingView Widgets                          │
+├─────────────────────────────────────────────────────────────┤
+│  Automation: Inngest Workflows + Nodemailer                  │
+├─────────────────────────────────────────────────────────────┤
+│  Database: MongoDB                                           │
+└─────────────────────────────────────────────────────────────┘
+```
+
+This powerful technology stack enables Signalist to deliver real-time market intelligence with enterprise-grade reliability, scalability, and performance.
+
+---
+
+## 📧 Contact
+
+**Priyanshu Paul** - [LinkedIn](https://www.linkedin.com/in/priyanshu-paul-59221228a/)
+
+Project Link: [https://signalist-tracker.vercel.app/](https://signalist-tracker.vercel.app/)
+
+GitHub Repository: [https://github.com/priyanshu09102003/Signalist_Stock_Market_Application](https://github.com/priyanshu09102003/Signalist_Stock_Market_Application)
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by Priyanshu</p>
+  <p>⭐ Star this repo if you find it helpful!</p>
+</div>
 
 
