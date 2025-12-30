@@ -13,7 +13,7 @@
     <a href="#-getting-started">Getting Started</a> •
     <a href="#-dashboard">Dashboard</a> •
     <a href="#-global-search">Global Search</a> •
-    <a href="#-contributing">Contributing</a>
+    <a href="#-stock-details-an-watchlist">Stock Details and Watchlist Functionality</a>
   </p>
 </div>
 
@@ -192,6 +192,58 @@ Simply click on any stock from the search results to be instantly redirected to 
 - Set custom price alerts
 
 The global search ensures you can track any publicly traded company worldwide, making Signalist your comprehensive market intelligence platform regardless of which stocks you're interested in.
+
+---
+
+## 📊 Stock Details & Watchlist
+
+### Detailed Stock Analysis
+
+<div align="center">
+  <img src="./public/stocks.png" alt="Stock Details Page" width="70%" style="max-height: 400px; object-fit: contain;">
+</div>
+
+When you navigate to any stock from the global search or dashboard, you'll access a **comprehensive stock details page** that provides everything you need to make informed trading decisions.
+
+**Live Price Chart**: The centerpiece features an interactive candlestick chart powered by **TradingView widgets**, offering professional-grade charting capabilities. Toggle between multiple timeframes (1 minute, 5 minutes, 30 minutes, 1 hour, 1 day) to analyze short-term movements or long-term trends. The chart includes volume indicators and technical overlays, with OHLC (Open, High, Low, Close) data displayed prominently. All real-time price data is sourced directly from the **Finnhub API**, ensuring accurate and up-to-the-second market information.
+
+**Technical Analysis Gauge**: A visual sentiment meter provides instant buy/sell recommendations based on technical indicators. The gauge displays the current market sentiment with clear metrics showing the number of sell signals, neutral indicators, and buy signals, helping you understand market consensus at a glance.
+
+**Financial Data**: Access comprehensive financial information including:
+- **Cash Flow**: Operating, investing, and financing cash flows with TTM (Trailing Twelve Months) data
+- **Valuation Metrics**: Market capitalization, enterprise value, P/E ratio, P/S ratio, P/B ratio, and P/CF ratio
+- **Profitability**: Gross margin, operating margin, pretax margin, and net margin percentages
+- **Efficiency Ratios**: Return on assets, return on equity, and return on invested capital
+- **Income Statement**: Total revenue, revenue per share, and gross profit figures
+
+All financial data is sourced in real-time from the **Finnhub API**, ensuring accuracy and reliability for your investment analysis. The integration of TradingView's industry-standard charting tools with Finnhub's comprehensive market data creates a powerful combination for technical and fundamental analysis.
+
+---
+
+### Personalized Watchlist
+
+<div align="center">
+  <img src="./public/watchlist.png" alt="Stock Details Page" width="70%" style="max-height: 400px; object-fit: contain;">
+</div>
+
+**Add to Watchlist**: From any stock details page, simply click the "Add to Watchlist" button to save stocks you want to monitor closely. Your watchlist becomes your personalized portfolio tracking tool.
+
+**AI-Powered Daily Insights**: Here's where Signalist truly shines—once you add stocks to your watchlist, our **Inngest-powered background workflows** automatically activate:
+
+- **Daily Cron Jobs**: Every morning, automated workflows analyze your watchlisted stocks using real-time data from Finnhub
+- **AI-Generated Insights**: Receive personalized email reports with AI-powered analysis of your favorite stocks
+- **Market Movement Alerts**: Get notified of significant price changes, news, or technical signal shifts
+- **Custom Analytics**: Insights are tailored to each stock's performance and your trading preferences
+
+**Watchlist Management**: Your watchlist page displays all tracked stocks in an organized table format showing:
+- Company name and ticker symbol
+- Current price with real-time updates from Finnhub API
+- Percentage change (color-coded: red for losses, green for gains)
+- Market capitalization
+- Date added to watchlist
+- Quick delete action for easy management
+
+The watchlist syncs across all your devices, ensuring you can monitor your favorite stocks whether you're on desktop or mobile. With Signalist's intelligent automation powered by Inngest workflows and real-time Finnhub data, you're always informed about the stocks that matter most to you—without having to constantly check the markets manually.
 
 ---
 
