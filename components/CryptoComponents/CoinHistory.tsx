@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { fetcher } from '@/lib/actions/coingecko.actions'
-import { TrendingUp, TrendingDown } from 'lucide-react'
+import { TrendingUp, TrendingDown, Loader2 } from 'lucide-react'
 import { LineChart, Line, ResponsiveContainer } from 'recharts'
 
 interface CoinHistoryProps {
@@ -142,8 +142,8 @@ const CoinHistory: React.FC<CoinHistoryProps> = ({ coinId, currentPrice }) => {
         <ul className='details-grid'>
           {[1, 2, 3, 4].map((i) => (
             <li key={i}>
-              <p className='text-gray-400'>Loading...</p>
-              <p className='text-base font-medium'>--</p>
+              <p className='text-gray-400'>Fetching Data...</p>
+              <p className='text-base font-medium'><Loader2 className='animate-spin'/></p>
             </li>
           ))}
         </ul>
