@@ -134,3 +134,30 @@ export async function checkIsInWatchlist(email: string, symbol: string): Promise
     return false;
   }
 }
+
+export async function getWatchlistSymbolsByEmail(email: string): Promise<string[]> {
+  if (!email) return [];
+
+  try {
+    const mongoose = await connectToDatabase();
+    const db = mongoose.connection.db;
+    if (!db) throw new Error('MongoDB connection not found');
+
+    const user = await db.collection('user').findOne<{ _id?: unknown; id?: string; email?: string }>({ email });
+
+    if (!user) return [];
+
+    const userId = (user.id as string) || String(user._id || '');
+    if (!userId) return [];
+
+    const items = await Watchlist.find({ userId })
+      .sort({ addedAt: -1 })
+      .lean();
+
+    // Return only the symbols as an array of strings
+    return items.map((item) => String(item.symbol));
+  } catch (err) {
+    console.error('getWatchlistSymbolsByEmail error:', err);
+    return [];
+  }
+}
