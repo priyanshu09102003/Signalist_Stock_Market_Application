@@ -10,12 +10,12 @@
   
   <p>
     <a href="#-application-overview">Overview</a> •
+    <a href="#️-tech-stack">Tech Stack & System Architecture</a> •
     <a href="#-getting-started">Getting Started</a> •
     <a href="#-dashboard">Dashboard</a> •
     <a href="#-global-search">Search</a> •
     <a href="#-stock-details--watchlist">Stock Details & Watchlist</a> •
-    <a href="#-cryptocurrency-market">Crypto</a> •
-    <a href="#️-tech-stack">Tech Stack</a> 
+    <a href="#-cryptocurrency-market">Crypto</a> 
   </p>
 </div>
 
@@ -37,6 +37,259 @@
 * **Secure Authentication**: User management powered by Better Auth
 
 Built for both casual investors and active traders seeking a unified platform for market analysis and portfolio management.
+
+---
+
+## ⚙️ Tech Stack
+
+Signalist is built with cutting-edge technologies to deliver a fast, reliable, and scalable market intelligence platform.
+
+### Core Framework & Language
+
+<table>
+<tr>
+<td width="50%">
+
+**Next.js**
+
+A powerful React framework for building full-stack web applications. It provides server-side rendering, static site generation, and API routes, allowing developers to create optimized and scalable apps quickly.
+
+</td>
+<td width="50%">
+
+**TypeScript**
+
+A statically typed superset of JavaScript that improves code quality, tooling, and error detection. It is ideal for building large-scale applications and enhances maintainability.
+
+</td>
+</tr>
+</table>
+
+---
+
+### Authentication & Database
+
+<table>
+<tr>
+<td width="50%">
+
+**Better Auth**
+
+A framework-agnostic authentication and authorization library for TypeScript. It provides built-in support for email/password login, social sign-on (Google, GitHub, Apple, and more), and multi-factor authentication, simplifying user authentication and account management.
+
+</td>
+<td width="50%">
+
+**MongoDB**
+
+A flexible, high-performance NoSQL database. It stores data in JSON-like documents, supports dynamic schemas, and provides robust features for scalability, replication, and querying.
+
+</td>
+</tr>
+</table>
+
+---
+
+### Market Data & Visualization
+
+<table>
+<tr>
+<td width="50%">
+
+**Finnhub API**
+
+A real-time financial data API that provides stock, forex, and cryptocurrency market data. It offers developers access to fundamental data, economic indicators, and news, making it useful for building trading apps, dashboards, and financial analysis tools.
+
+</td>
+<td width="50%">
+
+**CoinGecko API**
+
+A comprehensive and reliable RESTful API that provides real-time and historical cryptocurrency market data, including prices, market capitalization, volume, and exchange information, enabling developers to build crypto tracking, analysis, and portfolio management applications.
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+**TradingView Widgets**
+
+A high-performance financial visualization library that provides interactive charting capabilities for rendering complex OHLCV data. It enables the integration of responsive candlestick charts and technical indicators, allowing users to perform professional-grade technical analysis with low-latency updates and surgical precision.
+
+</td>
+</tr>
+</table>
+
+---
+
+### Workflow Automation & Notifications
+
+<table>
+<tr>
+<td width="50%">
+
+**Inngest**
+
+A platform for event-driven workflows and background jobs. It allows developers to build reliable, scalable automated processes such as real-time alerts, notifications, and AI-powered workflows.
+
+</td>
+<td width="50%">
+
+**Nodemailer**
+
+A Node.js library for sending emails easily. It supports various transport methods such as SMTP, OAuth2, and third-party services, making it a reliable tool for handling transactional emails, notifications, and contact forms in applications.
+
+</td>
+</tr>
+</table>
+
+---
+
+### UI & Styling
+
+<table>
+<tr>
+<td width="50%">
+
+**Shadcn UI**
+
+An open-source library of fully customizable, accessible React components. It helps teams rapidly build consistent, visually appealing UIs while allowing full control over design and layout.
+
+</td>
+<td width="50%">
+
+**TailwindCSS**
+
+A utility-first CSS framework that allows developers to build custom, responsive designs quickly without leaving their HTML. It provides pre-defined classes for layout, typography, colors, and more.
+
+</td>
+</tr>
+</table>
+
+
+This powerful technology stack enables Signalist to deliver real-time market intelligence with enterprise-grade reliability, scalability, and performance.
+
+---
+
+### System Architecture
+
+```mermaid
+flowchart TD
+    USER(["👤 Trader / Investor"]):::startend
+
+    subgraph FRONTEND["🖥️ Frontend Layer"]
+        NEXTJS["**Next.js**<br/>App Router · SSR · API Routes"]:::process
+        SHADCN["**Shadcn UI + TailwindCSS**<br/>Component Library · Responsive Design"]:::process
+        TRADINGVIEW["**TradingView Widgets**<br/>Candlestick Charts · OHLCV Data<br/>Technical Indicators · Multi-Timeframe"]:::process
+        HEATMAP["**Market Heatmap**<br/>Sector Analysis · Color-Coded<br/>Market Cap Visualization"]:::process
+        SEARCHBAR["**Global Search ⌘K**<br/>Instant Stock & Crypto Lookup<br/>Real-Time Results"]:::process
+    end
+
+    subgraph AUTH["🔐 Authentication"]
+        BETTERAUTH["**Better Auth**<br/>Email · GitHub OAuth · Google OAuth<br/>Session Management · MFA"]:::mlmodel
+    end
+
+    subgraph DB["🗄️ Database Layer"]
+        MONGO["**MongoDB**<br/>NoSQL · JSON Documents<br/>Dynamic Schemas · Replication"]:::database
+        WATCHLIST_DB["**Watchlist Store**<br/>User Assets · Alert Configs<br/>Preferences & History"]:::database
+    end
+
+    subgraph MARKET_DATA["📡 Market Data Sources"]
+        FINNHUB["**Finnhub API**<br/>Live Stock Prices · OHLCV<br/>Fundamentals · News · Financials<br/>Valuation Metrics · Earnings"]:::env
+        COINGECKO["**CoinGecko API**<br/>Crypto Prices · Market Cap<br/>24h Volume · Exchange Listings<br/>Trending Coins · Categories"]:::env
+    end
+
+    subgraph DASHBOARD["📊 Dashboard Modules"]
+        MARKET_OVERVIEW["**Market Overview**<br/>Sector Charts · Global Indices<br/>Financial · Tech · Services"]:::process
+        TOP_STORIES["**Top Stories**<br/>Real-Time Financial News<br/>Earnings · Analyst Reports"]:::process
+        FIN_TABLES["**Financial Tables**<br/>Live Price · Change · Open<br/>High · Volume by Sector"]:::process
+    end
+
+    subgraph STOCK_MODULE["📈 Stock Intelligence"]
+        STOCK_DETAIL["**Stock Details Page**<br/>Live Price · OHLC · Volume<br/>Multi-Timeframe Analysis"]:::process
+        TECH_GAUGE["**Technical Analysis Gauge**<br/>Buy · Sell · Neutral Signals<br/>Market Sentiment Score"]:::mlmodel
+        FUNDAMENTALS["**Fundamentals Panel**<br/>P/E · P/S · P/B Ratios<br/>Margins · ROE · ROA<br/>Cash Flow · Revenue"]:::process
+    end
+
+    subgraph CRYPTO_MODULE["💰 Crypto Intelligence"]
+        CRYPTO_DASH["**Crypto Dashboard**<br/>Live Charts · Trending Coins<br/>Top Categories · DeFi · L1"]:::process
+        CRYPTO_SEARCH["**Coin Search**<br/>Thousands of Assets<br/>Exchange Listings"]:::process
+        PRICE_CONV["**Price Converter**<br/>Multi-Currency Support<br/>Real-Time Rates"]:::process
+    end
+
+    subgraph AUTOMATION["⚡ Workflow Automation"]
+        INNGEST["**Inngest**<br/>Event-Driven Workflows<br/>Background Jobs · Cron Scheduling<br/>Reliable Execution · Auto-Retry"]:::process
+        CRON["**Daily Cron Jobs**<br/>Morning Watchlist Analysis<br/>Signal Generation · Alerts"]:::process
+        AI_INSIGHTS["**AI-Powered Insights**<br/>Watchlist Stock Analysis<br/>Buy · Sell Signal Detection<br/>Price Movement Alerts"]:::mlmodel
+    end
+
+    subgraph NOTIFICATIONS["📧 Notification System"]
+        NODEMAILER["**Nodemailer**<br/>SMTP · OAuth2 Transport<br/>Transactional Emails"]:::env
+        WELCOME_EMAIL["**Welcome Email**<br/>Personalized Onboarding<br/>Preference-Based Content"]:::env
+        ALERT_EMAIL["**Daily Alert Emails**<br/>Watchlist Insights<br/>Market Movement Reports<br/>AI-Generated Summaries"]:::env
+    end
+
+    USER -->|"HTTPS Request"| NEXTJS
+    NEXTJS --> SHADCN
+    NEXTJS --> TRADINGVIEW
+    NEXTJS --> HEATMAP
+    NEXTJS --> SEARCHBAR
+
+    NEXTJS --> BETTERAUTH
+    BETTERAUTH -->|"Store Sessions"| MONGO
+
+    SEARCHBAR -->|"Query Stocks"| FINNHUB
+    SEARCHBAR -->|"Query Coins"| COINGECKO
+
+    FINNHUB -->|"Live Prices · News"| MARKET_OVERVIEW
+    FINNHUB -->|"OHLCV Data"| STOCK_DETAIL
+    FINNHUB -->|"Fundamentals"| FUNDAMENTALS
+    FINNHUB -->|"Technical Data"| TECH_GAUGE
+    FINNHUB -->|"Sector Data"| FIN_TABLES
+
+    COINGECKO -->|"Crypto Prices"| CRYPTO_DASH
+    COINGECKO -->|"Coin Data"| CRYPTO_SEARCH
+    COINGECKO -->|"Exchange Rates"| PRICE_CONV
+
+    MARKET_OVERVIEW --> DASHBOARD
+    TOP_STORIES --> DASHBOARD
+    FIN_TABLES --> DASHBOARD
+
+    STOCK_DETAIL --> STOCK_MODULE
+    TECH_GAUGE --> STOCK_MODULE
+    FUNDAMENTALS --> STOCK_MODULE
+
+    CRYPTO_DASH --> CRYPTO_MODULE
+    CRYPTO_SEARCH --> CRYPTO_MODULE
+    PRICE_CONV --> CRYPTO_MODULE
+
+    STOCK_MODULE -->|"Add to Watchlist"| WATCHLIST_DB
+    WATCHLIST_DB --> MONGO
+
+    WATCHLIST_DB -->|"Trigger on Add"| INNGEST
+    INNGEST --> CRON
+    CRON -->|"Fetch Watchlist Assets"| FINNHUB
+    CRON --> AI_INSIGHTS
+    AI_INSIGHTS -->|"Generate Report"| NODEMAILER
+
+    BETTERAUTH -->|"New User Signup"| INNGEST
+    INNGEST -->|"Onboarding Flow"| WELCOME_EMAIL
+    INNGEST -->|"Daily Reports"| ALERT_EMAIL
+
+    NODEMAILER --> WELCOME_EMAIL
+    NODEMAILER --> ALERT_EMAIL
+
+    TRADINGVIEW -->|"Render Charts"| STOCK_DETAIL
+    TRADINGVIEW -->|"Render Charts"| CRYPTO_DASH
+
+    classDef startend fill:#1a7a1a,stroke:#4caf50,stroke-width:2px,color:#ffffff,font-weight:bold
+    classDef database fill:#7b2d8b,stroke:#ce93d8,stroke-width:2px,color:#ffffff,font-weight:bold
+    classDef mlmodel fill:#c62828,stroke:#ef9a9a,stroke-width:2px,color:#ffffff,font-weight:bold
+    classDef process fill:#1565c0,stroke:#90caf9,stroke-width:2px,color:#ffffff,font-weight:bold
+    classDef decision fill:#e65100,stroke:#ffcc02,stroke-width:3px,color:#ffffff,font-weight:bold
+    classDef result fill:#2e7d32,stroke:#a5d6a7,stroke-width:2px,color:#ffffff,font-weight:bold
+    classDef env fill:#4527a0,stroke:#ce93d8,stroke-width:2px,color:#ffffff,font-weight:bold
+```
 
 ---
 
@@ -269,156 +522,6 @@ Signalist extends beyond traditional stock markets to provide comprehensive **cr
 Whether you're a Bitcoin maximalist, DeFi enthusiast, or exploring the broader crypto ecosystem, Signalist provides the tools you need to stay informed and make data-driven decisions in the fast-moving world of digital assets.
 
 **Explore the crypto markets and discover your next investment opportunity!**
-
----
-
-## ⚙️ Tech Stack
-
-Signalist is built with cutting-edge technologies to deliver a fast, reliable, and scalable market intelligence platform.
-
-### Core Framework & Language
-
-<table>
-<tr>
-<td width="50%">
-
-**Next.js**
-
-A powerful React framework for building full-stack web applications. It provides server-side rendering, static site generation, and API routes, allowing developers to create optimized and scalable apps quickly.
-
-</td>
-<td width="50%">
-
-**TypeScript**
-
-A statically typed superset of JavaScript that improves code quality, tooling, and error detection. It is ideal for building large-scale applications and enhances maintainability.
-
-</td>
-</tr>
-</table>
-
----
-
-### Authentication & Database
-
-<table>
-<tr>
-<td width="50%">
-
-**Better Auth**
-
-A framework-agnostic authentication and authorization library for TypeScript. It provides built-in support for email/password login, social sign-on (Google, GitHub, Apple, and more), and multi-factor authentication, simplifying user authentication and account management.
-
-</td>
-<td width="50%">
-
-**MongoDB**
-
-A flexible, high-performance NoSQL database. It stores data in JSON-like documents, supports dynamic schemas, and provides robust features for scalability, replication, and querying.
-
-</td>
-</tr>
-</table>
-
----
-
-### Market Data & Visualization
-
-<table>
-<tr>
-<td width="50%">
-
-**Finnhub API**
-
-A real-time financial data API that provides stock, forex, and cryptocurrency market data. It offers developers access to fundamental data, economic indicators, and news, making it useful for building trading apps, dashboards, and financial analysis tools.
-
-</td>
-<td width="50%">
-
-**CoinGecko API**
-
-A comprehensive and reliable RESTful API that provides real-time and historical cryptocurrency market data, including prices, market capitalization, volume, and exchange information, enabling developers to build crypto tracking, analysis, and portfolio management applications.
-
-</td>
-</tr>
-<tr>
-<td colspan="2">
-
-**TradingView Widgets**
-
-A high-performance financial visualization library that provides interactive charting capabilities for rendering complex OHLCV data. It enables the integration of responsive candlestick charts and technical indicators, allowing users to perform professional-grade technical analysis with low-latency updates and surgical precision.
-
-</td>
-</tr>
-</table>
-
----
-
-### Workflow Automation & Notifications
-
-<table>
-<tr>
-<td width="50%">
-
-**Inngest**
-
-A platform for event-driven workflows and background jobs. It allows developers to build reliable, scalable automated processes such as real-time alerts, notifications, and AI-powered workflows.
-
-</td>
-<td width="50%">
-
-**Nodemailer**
-
-A Node.js library for sending emails easily. It supports various transport methods such as SMTP, OAuth2, and third-party services, making it a reliable tool for handling transactional emails, notifications, and contact forms in applications.
-
-</td>
-</tr>
-</table>
-
----
-
-### UI & Styling
-
-<table>
-<tr>
-<td width="50%">
-
-**Shadcn UI**
-
-An open-source library of fully customizable, accessible React components. It helps teams rapidly build consistent, visually appealing UIs while allowing full control over design and layout.
-
-</td>
-<td width="50%">
-
-**TailwindCSS**
-
-A utility-first CSS framework that allows developers to build custom, responsive designs quickly without leaving their HTML. It provides pre-defined classes for layout, typography, colors, and more.
-
-</td>
-</tr>
-</table>
-
----
-
-### Architecture Overview
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    Signalist Platform                        │
-├─────────────────────────────────────────────────────────────┤
-│  Frontend: Next.js + TypeScript + TailwindCSS + Shadcn UI   │
-├─────────────────────────────────────────────────────────────┤
-│  Authentication: Better Auth                                 │
-├─────────────────────────────────────────────────────────────┤
-│  Data Sources: Finnhub API + CoinGecko API                  │
-│  Visualization: TradingView Widgets                          │
-├─────────────────────────────────────────────────────────────┤
-│  Automation: Inngest Workflows + Nodemailer                  │
-├─────────────────────────────────────────────────────────────┤
-│  Database: MongoDB                                           │
-└─────────────────────────────────────────────────────────────┘
-```
-
-This powerful technology stack enables Signalist to deliver real-time market intelligence with enterprise-grade reliability, scalability, and performance.
 
 ---
 
