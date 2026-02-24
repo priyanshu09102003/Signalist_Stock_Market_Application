@@ -10,7 +10,7 @@
   
   <p>
     <a href="#-application-overview">Overview</a> •
-    <a href="#️-tech-stack">Tech Stack & System Architecture</a> •
+    <a href="#️-tech-stack">Tech Stack </a> •
     <a href="#-getting-started">Getting Started</a> •
     <a href="#-dashboard">Dashboard</a> •
     <a href="#-global-search">Search</a> •
